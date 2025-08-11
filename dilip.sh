@@ -1,1 +1,1 @@
-echo " dilip is a very $1 $2 "
+echo " dilip is a very $1 $2 right"
