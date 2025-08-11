@@ -1,3 +1,1 @@
-
-echo "dilip is a very very very $1 $2 "
-echo "nothing"
+echo " dilip is a good $1 $2 "
