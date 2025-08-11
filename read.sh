@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "enter your name "
-read NAME
+read -s NAME
 
-echo " the name u entered is $Name"
+echo " the name u entered is $NAME"
 
