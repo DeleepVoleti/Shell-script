@@ -3,9 +3,9 @@ name=$( echo $0 | cut -d "." -f1 )
 logfile=/tmp/$name.logfile
 
 uid=$(id -u)
-r=\e[31m
-g=\e[32m
-n=\e[0m
+r='\e[31m'
+g='\e[32m'
+n='\e[0m'
 
 if [ $uid -ne 0 ]
 then 
@@ -23,10 +23,10 @@ fi
 }
 
 dnf install mysql-server -y &>>$logfile
-validate $? installing my-sql 
+validate $? installing-my-sql 
 
 systemctl enable mysqld &>>$logfile
-validate $? enabling my-sql
+validate $? enabling-my-sql
 
 systemctl start mysqld &>>$logfile
-validate $? starting my-sql
+validate $? starting-my-sql
