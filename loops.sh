@@ -4,6 +4,7 @@
  do 
  if [ $i -gt 3]
  then echo -e "\e[32m hii dilip" 
- fi
+ else 
  echo -e " \e[31m  hii dilip"
+ fi
  done
