@@ -8,6 +8,19 @@ exit 1
 fi
  }
 
+validate() {
+if [$1 -ne 0]
+then echo "installation is failure"
+else echo "success or already installed"
+
+}
+
+
+
+
+
  ValidateUser $( id -u )
+ 
 
 dnf install mysql -y 
+ validate $? 
