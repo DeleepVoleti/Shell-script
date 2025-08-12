@@ -19,6 +19,7 @@ then
 echo -e " $2 is $r failure $n "
 else 
 echo -e " $2 is $g success $n"
+fi
 }
 
 dnf install mysql-server -y &>>$logfile
