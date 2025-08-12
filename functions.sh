@@ -12,6 +12,7 @@ validate(){
 if [$1 -ne 0]
 then echo "installation is failure"
 else echo "success or already installed" 
+fi
 }
 
 
