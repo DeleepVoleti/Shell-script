@@ -1,5 +1,5 @@
 #!/bin/bash
-name=$( echo $0 | awk -d "." -f1 )
+name=$( echo $0 | cut -d "." -f1 )
 logfile=/tmp/$name.logfile
 
 uid=$(id -u)
