@@ -42,7 +42,6 @@ systemctl start mysqld &>>$logfile
 validate $? starting-my-sql
 
 mysql -u root -p"ExpenseApp@1" -e "SELECT 1;" &>>$logfile
- &>>$logfile
  if [ $? -ne 0 ]
  then echo -e " password is already set $r skipping this step....... $n "
  else 
