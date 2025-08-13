@@ -3,7 +3,7 @@
 name=$( echo $0 | cut -d "." -f1 )
 time=$(date +"%H:%M:%S")
 logfile=/tmp/$time.$name.logfile
-
+uid=$(id -u)
 
 
 RootCheck(){
