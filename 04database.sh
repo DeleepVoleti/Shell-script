@@ -45,10 +45,11 @@ systemctl start mysqld &>>$logfile
 validate $? starting-my-sql
 
 mysql -h db.dilipswebsite.online -uroot -p$Password -e 'show databases' &>>$logfile
- 
+
  if [ $? -ne 0 ]
  then echo -e " password is already set $r skipping this step....... $n "
  else 
  mysql_secure_installation --set-root-pass $Password
+ validate $? password-setting
  fi
 
