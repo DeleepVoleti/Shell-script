@@ -3,8 +3,6 @@ name=$( echo $0 | cut -d "." -f1 )
 time=$(date +"%H:%M:%S")
 logfile=/tmp/$time.$name.logfile
 
-echo " please enter the sql password" 
-read Password
 
 uid=$(id -u)
 r='\e[31m'
@@ -22,6 +20,10 @@ fi
 }
 
 RootCheck
+
+echo " please enter the sql password" 
+read Password
+
 
 
 validate(){

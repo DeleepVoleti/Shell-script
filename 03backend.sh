@@ -5,9 +5,6 @@ time=$(date +"%H:%M:%S")
 logfile=/tmp/$time.$name.logfile
 
 
-echo " please enter the sql password" 
-read Password
-
 
 RootCheck(){
 if [ $uid -ne 0 ]
@@ -18,6 +15,11 @@ fi
 }
 
 RootCheck
+
+
+echo " please enter the sql password" 
+read Password
+
 
 validate(){
 if [ $1 -ne 0 ]
