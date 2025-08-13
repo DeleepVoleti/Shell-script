@@ -1,17 +1,26 @@
 #!/bin/bash
 name=$( echo $0 | cut -d "." -f1 )
-logfile=/tmp/$name.logfile
+time=$(date +"%H:%M:%S")
+logfile=/tmp/$time.$name.logfile
+
+echo " please enter the sql password" 
+read Password
 
 uid=$(id -u)
 r='\e[31m'
 g='\e[32m'
 n='\e[0m'
 
+rootcheck 
+
+root-check(){
 if [ $uid -ne 0 ]
 then 
 echo " please run the code with root access"
 exit 1 
 fi 
+}
+
 
 validate(){
 if [ $1 -ne 0 ]
@@ -30,3 +39,12 @@ validate $? enabling-my-sql
 
 systemctl start mysqld &>>$logfile
 validate $? starting-my-sql
+
+mysql -h db.dilipswebsite.online -uroot -p$Password -e 'show databases' &>>$logfile
+ 
+ if [ $? -ne 0 ]
+ then echo -e " password is already set $r skipping this step....... $n "
+ else 
+ mysql_secure_installation --set-root-pass $Password
+ fi
+
