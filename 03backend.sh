@@ -4,6 +4,9 @@ name=$( echo $0 | cut -d "." -f1 )
 time=$(date +"%H:%M:%S")
 logfile=/tmp/$time.$name.logfile
 uid=$(id -u)
+r='\e[31m'
+g='\e[32m'
+n='\e[0m'
 
 
 RootCheck(){
@@ -45,6 +48,7 @@ then
 useradd expense &>>$logfile
 else
 echo -e " expense user already exits , $r skipping $n "
+fi
 
 mkdir -p /app &>>$logfile
 validate $? /app-directory-creation
@@ -55,14 +59,14 @@ validate $? downloading-the-code
 cd /app
 rm -rf /app/* 
 unzip /tmp/backend.zip &>>$logfile
-validate $? unzipping-the-code &>>$logfile
+validate $? unzipping-the-code 
 
 cd /app
 
 npm install &>>$logfile
 validate $? installing-dependencies
 
-cp /c/Repos/Shell-script/backend.service  /etc/systemd/system/backend.service
+cp /home/ec2-user/Shell-script/backend.service  /etc/systemd/system/backend.service
 
 systemctl daemon-reload &>>$logfile
 validate $? demon-reload 
