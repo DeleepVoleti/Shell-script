@@ -20,9 +20,6 @@ fi
 RootCheck
 
 
-echo " please enter the sql password" 
-read Password
-
 
 validate(){
 if [ $1 -ne 0 ]
@@ -80,7 +77,7 @@ validate $? enabling-backend
 dnf install mysql -y &>>$logfile
 validate $? installing-mysql-client
 
-mysql -h db.dilipswebsite.online -uroot -p$Password < /app/schema/backend.sql &>>$logfile
+mysql -h db.dilipswebsite.online -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$logfile
 validate $? loading-schema-in-database
 
 systemctl restart backend &>>$logfile
