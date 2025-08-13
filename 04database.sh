@@ -11,7 +11,7 @@ r='\e[31m'
 g='\e[32m'
 n='\e[0m'
 
-rootcheck 
+root-check 
 
 root-check(){
 if [ $uid -ne 0 ]
