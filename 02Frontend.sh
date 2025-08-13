@@ -5,13 +5,15 @@ time=$(date +"%H:%M:%S")
 logfile=/tmp/$time.$name.logfile
 
 
-root-check(){
+RootCheck(){
 if [ $uid -ne 0 ]
 then 
 echo " please run the code with root access"
 exit 1 
 fi 
 }
+
+RootCheck
 
 validate(){
 if [ $1 -ne 0 ]

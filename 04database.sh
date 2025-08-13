@@ -11,15 +11,17 @@ r='\e[31m'
 g='\e[32m'
 n='\e[0m'
 
-root-check 
 
-root-check(){
+
+RootCheck(){
 if [ $uid -ne 0 ]
 then 
 echo " please run the code with root access"
 exit 1 
 fi 
 }
+
+RootCheck
 
 
 validate(){
