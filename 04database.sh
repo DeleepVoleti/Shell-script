@@ -21,9 +21,6 @@ fi
 
 RootCheck
 
-echo " please enter the sql password" 
-read Password
-
 
 
 validate(){
@@ -44,8 +41,7 @@ validate $? enabling-my-sql
 systemctl start mysqld &>>$logfile
 validate $? starting-my-sql
 
-mysql -h db.dilipswebsite.online -uroot -p$Password -e 'show databases' &>>$logfile
-
+mysql -h db.dilipswebsite.online -uroot -pExpenseApp@1 -e 'show databases' &>>$logfile
  if [ $? -ne 0 ]
  then echo -e " password is already set $r skipping this step....... $n "
  else 
