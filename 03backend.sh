@@ -39,7 +39,7 @@ validate $? enabling-node-js-20
 dnf install nodejs -y &>>$logfile
 validate $? installing-nodejs
 
-id expense 
+id expense &>>$logfile
 if [ $? -ne 0 ]
 then 
 useradd expense &>>$logfile
