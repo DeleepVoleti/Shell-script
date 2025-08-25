@@ -10,3 +10,6 @@ echo " please check the weather the $Source path is present or not"
 exit 1
 fi
 
+files=$(find $Source -name "*.logs" -mtime +14)
+
+echo " files"
