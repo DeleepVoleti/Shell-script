@@ -12,4 +12,4 @@ fi
 
 files=$(find $Source -name "*.logs" -mtime +14)
 
-echo " files"
+echo " $files"
