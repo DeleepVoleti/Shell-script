@@ -1,6 +1,6 @@
 #!/bin/bash
 
-Source=/tmp/app-logs
+Source=/tmp/app-logsssss
 
 if [ -d $Source ] 
 then 
