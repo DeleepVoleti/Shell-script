@@ -43,12 +43,13 @@ id expense &>>$logfile
 if [ $? -ne 0 ]
 then 
 useradd expense &>>$logfile
+validate $? "creating expense user" 
 else
 echo -e " expense user already exits , $r skipping $n "
 fi
 
 mkdir -p /app &>>$logfile
-validate $? /app-directory-creation
+validate $? " /app-directory-creation "
 
 curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip &>>$logfile
 validate $? downloading-the-code

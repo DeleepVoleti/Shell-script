@@ -3,7 +3,7 @@ name=$( echo $0 | cut -d "." -f1 )
 time=$(date +"%H:%M:%S")
 logfile=/tmp/$time.$name.logfile
 
-
+&>>
 uid=$(id -u)
 r='\e[31m'
 g='\e[32m'
@@ -41,11 +41,11 @@ validate $? enabling-my-sql
 systemctl start mysqld &>>$logfile
 validate $? starting-my-sql
 
-mysql -u root -p"ExpenseApp@1" -e "SELECT 1;" &>>$logfile
- if [ $? -ne 0 ]
+mysql -u root -p"ExpenseApp@1" -e "SELECT 1;" $logfile
+ if [ $? -eq 0 ]
  then echo -e " password is already set $r skipping this step....... $n "
  else 
- mysql_secure_installation --set-root-pass ExpenseApp@1
+ mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$logfile
  validate $? password-setting
  fi
 
